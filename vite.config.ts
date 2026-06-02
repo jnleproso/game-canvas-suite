@@ -12,4 +12,12 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  nitro: {
+    preset: "netlify-edge",
+    output: {
+      // Must match where Netlify looks for edge functions.
+      // The manifest.json is hardcoded to .netlify/edge-functions/ by the preset.
+      serverDir: ".netlify/edge-functions/server",
+    },
+  },
 });
